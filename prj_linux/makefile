@@ -1,0 +1,61 @@
+
+
+TOP := ..
+SRC_DIR := $(TOP)/source
+CURDIR := ./
+
+DEBUG = 0
+ARC_TARGET      := libmp4parser.a
+
+OBJ := $(SRC_DIR)/mp4parser \
+          $(SRC_DIR)/mp4utils \
+          $(SRC_DIR)/XThreadBase 
+
+INC_PATH += $(CURDIR)/../include/ \
+	    $(CURDIR)/../include/mp4v2/ 
+
+ifeq ($(DEBUG),1)
+    INSTALL_LIB_PATH = $(CURDIR)/../lib/linux/debug/
+else
+    INSTALL_LIB_PATH = $(CURDIR)/../lib/linux/release/
+endif
+
+
+
+ifeq ($(DEBUG),1)
+  CFLAGS += -g
+  CFLAGS += -O0
+endif
+
+CFLAGS += -D_LINUX_ -fno-omit-frame-pointer
+CFLAGS += $(foreach dir,$(INC_PATH),-I$(dir))
+
+LDFLAGS += $(foreach lib,$(LIB_PATH),-L$(lib))
+LDFLAGS += --static
+
+
+CC = g++
+RM = rm -rf
+INSTALL = install -D -m 644 
+AR = ar crus 
+OBJS := $(foreach obj,$(OBJ),$(obj).o)
+
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.s
+	$(CC) -c -o $@ $(CFLAGS) $<
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CC) -c -o $@ $(CFLAGS) $<
+	
+
+all: install
+  
+install:  $(ARC_TARGET)
+	$(INSTALL) $(ARC_TARGET) $(INSTALL_LIB_PATH)/$(ARC_TARGET)
+  
+$(ARC_TARGET) : $(OBJS)
+	$(AR) $(ARC_TARGET) $(OBJS)
+
+clean: 
+	$(RM) $(OBJS)
+	$(RM) $(ARC_TARGET)
+	
+

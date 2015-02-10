@@ -1,0 +1,1 @@
+g++ test.cpp -o test -I ../include/ -I ../include/mp4v2/ -L ../lib/linux/release/ -l mp4parser -l mp4v2 -lpthread

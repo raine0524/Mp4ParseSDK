@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mp4parser", "mp4parser.vcproj", "{71C49A01-4860-45BC-AC52-138FE3325C43}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "..\test\test.vcproj", "{C7C1913B-BA08-460A-A4EE-C72767DF58F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71C49A01-4860-45BC-AC52-138FE3325C43}.Debug|Win32.ActiveCfg = Debug|Win32
+		{71C49A01-4860-45BC-AC52-138FE3325C43}.Debug|Win32.Build.0 = Debug|Win32
+		{71C49A01-4860-45BC-AC52-138FE3325C43}.Release|Win32.ActiveCfg = Release|Win32
+		{71C49A01-4860-45BC-AC52-138FE3325C43}.Release|Win32.Build.0 = Release|Win32
+		{C7C1913B-BA08-460A-A4EE-C72767DF58F6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C7C1913B-BA08-460A-A4EE-C72767DF58F6}.Debug|Win32.Build.0 = Debug|Win32
+		{C7C1913B-BA08-460A-A4EE-C72767DF58F6}.Release|Win32.ActiveCfg = Release|Win32
+		{C7C1913B-BA08-460A-A4EE-C72767DF58F6}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
